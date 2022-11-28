@@ -1,0 +1,34 @@
+<form novalidate id="signUpForm" #f="ngForm">
+
+  Form:
+  <pre>{{f.value | json}}</pre>
+
+  <label>
+    <span>Jméno</span>
+    <input type="text" placeholder="Zadejte jméno" name="firstname" [(ngModel)]="userForm.firstname">
+  </label>
+
+  <label>
+    <span>Příjmení</span>
+    <input type="text" placeholder="Zadejte příjmení" name="lastname" [(ngModel)]="userForm.lastname">
+  </label>
+
+  <label for="car">Zvolte vaši značku vozidla:
+    <select name="car" [(ngModel)]="userForm.car" name="car">
+      <option [value]="carsEnum.SKODA">Škoda</option>
+      <option [value]="carsEnum.VW">WV</option>
+      <option [value]="carsEnum.CITROEN">Citroen</option>
+      <option [value]="carsEnum.KIA">Kia</option>
+    </select>
+  </label>
+
+
+  <button form="signUpForm" (click)="submit(f)">Sign up</button>
+
+
+  <div style="margin: 20px 0px;">
+    All users:
+    <pre>{{users | json}}</pre>
+  </div>
+
+</form>
